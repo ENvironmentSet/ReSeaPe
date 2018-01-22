@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    link(rel='stylesheet', href="./stylesheets/index.css")
+    nav.navbar.navbar-inverse
+        div.container-fluid
+            div.navbar-header
+                a.navbar-brand(href="/") ReSeape
+            div.collapse.navbar-collapse
+                form.navbar-form.navbar-left(role="search", action="/search", method="get")
+                    div.form-group
+                        input.form-control(name="search_word",type="text", placeholder="Search")
+                        button.btn.btn-default(type="submit") SUBMIT
+                ul.nav.navbar-nav.navbar-right
+                    li
+                        a(href="/write") WRITE
+                    li
+                        a(href="/login") LOGIN
+                    li
+                        a(href="/register") REGISTER

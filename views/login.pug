@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    link(rel='stylesheet', href="../stylesheets/signin.css")
+    link(rel='stylesheet', href="../stylesheets/login.css")
+    div.container
+        form.form-signin(action="/login", method="post")
+            h2.form-signin-heading LOGIN PLEASE
+            input.form-control(placeholder='id', required="", autofocus="", type="text", name="id_section")
+            input.form-control(placeholder='password', required="", type="password", name="password_section")
+            button.btn.btn-lg.btn-primary.btn-block(type="submit") LOGIN

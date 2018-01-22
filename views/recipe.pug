@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    link(rel='stylesheet', href="./stylesheets/recipe.css")
+    nav.navbar.navbar-inverse
+        div.container-fluid
+            div.navbar-header
+                a.navbar-brand(href="/") ReSeape
+            div.collapse.navbar-collapse
+                form.navbar-form.navbar-left(role="search", action="/search", method="get")
+                    div.form-group
+                        input.form-control(name="search_word",type="text", placeholder="Search")
+                        button.btn.btn-default(type="submit") SUBMIT
+                ul.nav.navbar-nav.navbar-right
+                    li
+                        a(href=`/edit?hash=${recipe.hash}`) EDIT
+                    li
+                        a(href=`/delete?hash=${recipe.hash}`) DELETE
+
+    div.jumbotron
+        h1=recipe.title
+        h2=`재료 : ${recipe.ingredients.join(",")}`
+        each how_to,index in recipe.recipe
+            div.panel.panel-info
+                div.panel-heading
+                    h3.panel-title=`${index+1}.`
+                div.panel-body
+                    h4=how_to

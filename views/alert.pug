@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    link(rel='stylesheet', href="./stylesheets/alert.css")
+    h1.alert.alert-success(role="alert")=message
+    h2=`YOU WILL REDIRECT In ${time} sec. to ${href}`
+    input#href(type="hidden" value=href)/
+    input#time(type="hidden" value=time)/
+    script.
+        var href = document.getElementById("href");
+        if (href) {
+            var time = document.getElementById("time").value;
+            console.log(time)
+            if (!time) time = 5000;
+            time *= 1000;
+            console.log(time)
+            setTimeout(function () {
+                location.href = href.value
+            }, time);
+        }

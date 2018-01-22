@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    link(rel='stylesheet', href="./stylesheets/edit.css")
+    nav.navbar.navbar-inverse
+        div.container-fluid
+            div.navbar-header
+                a.navbar-brand(href="/") ReSeape
+            div.collapse.navbar-collapse
+                form.navbar-form.navbar-left(role="search", action="/search", method="get")
+                    div.form-group
+                        input.form-control(name="search_word",type="text", placeholder="Search")
+                        button.btn.btn-default(type="submit") SUBMIT
+    div.container-fluid
+        form.form-group(action="/edit",method="post")
+            input.form-control(type="hidden", name="hash" value=recipe.hash)
+            label Title:
+            input.form-control(type="text", name="title", placeholder="Title",required="", value=recipe.title)
+            label Ingredients:
+            input.form-control(type="text", name="ingredients", placeholder="split by \",\"",required="", value=recipe.ingredients.join(","))
+            label How-to-make:
+            textarea.form-control(rows="25", name="how_to", placeholder="split by \".\"",required="")=recipe.recipe.join(".")
+            button.btn.btn-default(type="submit") SAVE

@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    link(rel='stylesheet', href="../stylesheets/view_list.css")
+    nav.navbar.navbar-inverse
+        div.container-fluid
+            div.navbar-header
+                a.navbar-brand(href="/") ReSeape
+            div.collapse.navbar-collapse
+                form.navbar-form.navbar-left(role="search", action="/search", method="get")
+                    div.form-group
+                        input.form-control(name="search_word",type="text", placeholder="Search")
+                        button.btn.btn-default(type="submit") Submit
+                ul.nav.navbar-nav.navbar-right
+                    li
+                        a(href="/write") Write
+    div.container
+        table.table.table-bordered.table-hover
+            thead
+                tr.active
+                    th Title
+                    th Ingredients
+                    th author
+            tbody
+                each recipe in recipes
+                    tr.active
+                        td
+                            a(href=`../load?hash=${recipe.hash}`)=recipe.title
+                        td=recipe.ingredients
+                        td=recipe.author
