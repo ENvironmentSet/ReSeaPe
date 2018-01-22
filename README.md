@@ -1,46 +1,42 @@
-DB = MongoDB
+ReSeaPe
+=======
 
-/
+What is ReSeaPe?
+----------------
 
-index.html
+레씨피는 음식의 레시피를 저장, 공유하는 위키입니다.
+레씨피는 철저한 익명 서비스를 제공합니다.
 
----------------------------
-|	        login register|
-|			              |
-|	  search	          |
-|			              |
-|			              |
----------------------------
+How to download?
+----------------
 
-search  = /search
+레씨피는 두 가지 방식으로 실행이 가능합니다.
 
-/search?option=daum | allrecipes | server DB&keyword=word	
+1.git clone https://github.com/ENvironmentSet/ReSeaPe.git
 
-http://m.cook.miznet.daum.net/recipe/dishGroupRecipeList?dishId=311
-http://allrecipes.kr/recipes/fish.aspx
-and server DB
+2.docker pull environmentset/reseape
 
-/register
+How to execute?
+---------------
 
-(Booststrap Sign-in example.)
+git으로 다운한 경우 :  cd ReSeaPe ; npm install ; npm start
 
-id , password (sha-512)
+docker 의 경우 : docker run -p 8080:8080 -d environmentset/reseape
 
-/login 
+또한 MongoDB가 localhost:27017에 있어야 합니다.
 
-(Booststrap Sign-in example.)
+mongodb 세팅
 
-id, password
 
-/load?code=hex
+use MAXIM
+db.createCollection("USERS")
+db.createCollection("ARTICLES")
 
-/write
+How to make extends?
+--------------------
 
-/edit?code=hex
+차후 외부 REST API를 제공할 예정이며.
+내부 스크립트에서도 API를 제공할 예정입니다.
+(그와 동시에 npm에 올라갑니다.)
 
-Article = JSON
-
-{
-    ingredients : [ingredients1, ingredients2 , ...],
-    recipe = [step1,step2 ...],
-}
+그 외 사항은 나중에 작성하겠습니다.
